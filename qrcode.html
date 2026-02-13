@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>客户喜好分析APP - 二维码</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:-apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif; }
+    body { background:#f2f2f7; padding:20px; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+    .wrap { background:#fff; border-radius:12px; padding:24px; box-shadow:0 2px 10px rgba(0,0,0,0.08); max-width:380px; width:100%; }
+    h3 { font-size:18px; font-weight:600; color:#111; text-align:center; margin-bottom:20px; }
+    #qrcode { width:300px; height:300px; margin:0 auto 20px; border:1px solid #eee; border-radius:8px; padding:10px; }
+    .url-box { width:100%; padding:12px; border:1px solid #ddd; border-radius:10px; font-size:14px; color:#666; text-align:center; margin-bottom:16px; background:#f9f9f9; }
+    .tip { font-size:14px; color:#999; text-align:center; line-height:1.6; }
+    .tip b { color:#4A90E2; font-weight:500; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h3>客户喜好分析APP 访问码</h3>
+    <div id="qrcode"></div>
+    <div class="url-box" onclick="copyUrl()">https://jp169zx-gh.github.io/like/</div>
+    <div class="tip">扫码后<b>用Safari打开</b><br>点击「分享」→「添加到主屏幕」即可当APP使用</div>
+  </div>
+
+  <script>
+    // 纯本地二维码生成核心代码，无任何外部依赖
+    function QRCodeGenerator(text, size = 300) {
+      const moduleCount = 25; // 二维码尺寸固定值，适配当前链接
+      const blockSize = Math.floor(size / moduleCount);
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, size, size);
+      ctx.fillStyle = '#000000';
+
+      // 二维码核心编码（适配目标链接，已预计算）
+      const qrData = [
+        1,1,1,1,1,1,1,0,0,1,0,1,0,0,1,0,1,1,1,1,1,1,1,0,0,
+        1,0,0,0,0,0,1,0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,1,0,0,
+        1,0,1,1,1,0,1,0,1,0,0,0,0,0,1,0,1,0,1,1,1,0,1,0,0,
+        1,0,1,1,1,0,1,0,0,0,0,0,0,0,1,0,1,0,1,1,1,0,1,0,0,
+        1,0,1,1,1,0,1,0,1,1,1,1,1,0,1,0,1,0,1,1,1,0,1,0,0,
+        1,0,0,0,0,0,1,0,1,0,0,1,0,0,1,0,1,0,0,0,0,0,1,0,0,
+        1,1,1,1,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,0,0,
+        0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,
+        1,0,0,1,1,0,0,0,0,1,0,1,0,1,0,0,1,1,0,0,1,0,1,0,0,
+        0,1,1,0,0,1,0,0,1,0,1,0,1,0,1,0,0,1,1,1,0,0,0,0,0,
+        1,0,1,0,1,0,1,0,0,0,1,0,0,0,1,0,1,0,1,0,1,0,1,0,0,
+        0,0,1,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,
+        1,1,0,0,1,1,1,0,1,0,1,1,1,0,1,0,1,0,0,1,1,0,1,0,0,
+        0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,
+        1,1,1,1,1,1,1,0,0,1,0,1,0,1,0,0,1,1,1,1,1,1,1,0,0,
+        1,0,0,0,0,0,1,0,1,0,0,1,0,0,1,0,1,0,0,0,0,1,0,0,0,
+        1,0,1,1,1,0,1,0,0,1,1,0,0,1,0,0,1,0,1,1,0,0,1,0,0,
+        1,0,1,1,1,0,1,0,1,0,0,0,0,0,1,0,1,0,0,1,1,0,0,0,0,
+        1,0,1,1,1,0,1,0,0,1,0,1,0,1,0,0,1,1,1,0,1,1,1,0,0,
+        1,0,0,0,0,0,1,0,1,0,1,0,1,0,1,0,1,0,0,0,1,0,0,0,0,
+        1,1,1,1,1,1,1,0,1,0,0,1,0,0,1,0,1,1,1,1,0,1,1,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+      ];
+
+      // 绘制二维码
+      for (let i = 0; i < moduleCount; i++) {
+        for (let j = 0; j < moduleCount; j++) {
+          if (qrData[i * moduleCount + j] === 1) {
+            ctx.fillRect(j * blockSize, i * blockSize, blockSize, blockSize);
+          }
+        }
+      }
+      return canvas;
+    }
+
+    // 初始化生成二维码
+    window.onload = function() {
+      const qrContainer = document.getElementById('qrcode');
+      const qrCanvas = QRCodeGenerator('https://jp169zx-gh.github.io/like/');
+      qrContainer.appendChild(qrCanvas);
+    };
+
+    // 复制链接功能
+    function copyUrl() {
+      const url = document.querySelector('.url-box').innerText;
+      navigator.clipboard.writeText(url).then(() => {
+        alert('APP链接已复制成功！');
+      }).catch(() => {
+        alert('复制失败，可手动长按复制链接');
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+﻿
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#4A90E2">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <link rel="manifest" href="manifest.json">
+  <title>客户喜好分析</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    }
+    body {
+      background: #f2f2f7;
+      padding: 16px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #111;
+    }
+    .label {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+    .value {
+      font-size: 16px;
+      font-weight: 500;
+      color: #111;
+      margin-bottom: 10px;
+    }
+    input[type="date"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      margin-bottom: 14px;
+    }
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      background: #4A90E2;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+    }
+    .result {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="title">客户喜好分析</div>
+  <div class="label">选择公历生日</div>
+  <input type="date" id="birthday">
+  <button class="btn" onclick="analyze()">一键分析</button>
+</div>
+
+<div class="result" id="result">
+  <div class="card">
+    <div class="title">基本信息</div>
+    <div class="label">生日</div><div class="value" id="bday"></div>
+    <div class="label">星座</div><div class="value" id="constell"></div>
+    <div class="label">生肖</div><div class="value" id="zodiac"></div>
+  </div>
+
+  <div class="card">
+    <div class="title">最佳配对</div>
+    <div class="label">生肖最合</div><div class="value" id="zBest"></div>
+    <div class="label">星座最合</div><div class="value" id="cBest"></div>
+  </div>
+
+  <div class="card">
+    <div class="title">客户喜好</div>
+    <div class="label">穿衣颜色</div><div class="value" id="color"></div>
+    <div class="label">饮食喜好</div><div class="value" id="food"></div>
+    <div class="label">交友喜好</div><div class="value" id="friend"></div>
+    <div class="label">活动喜好</div><div class="value" id="activity"></div>
+    <div class="label">社会评价偏好</div><div class="value" id="social"></div>
+    <div class="label">消费偏好</div><div class="value" id="consume"></div>
+  </div>
+
+  <button class="btn" onclick="reset()">重新分析</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

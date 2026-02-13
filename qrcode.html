@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>生成客户喜好APP二维码</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+  <style>
+    body{ text-align:center; padding:30px; font-family:Arial; }
+    #qrcode{ margin:20px auto; }
+    input{ width:80%; padding:10px; font-size:16px; }
+  </style>
+</head>
+<body>
+  <h2>客户喜好分析 APP 二维码</h2>
+  <input type="text" id="url" placeholder="输入你的 index.html 网址" value="https://">
+  <div id="qrcode"></div>
+
+  <script>
+    const urlInput = document.getElementById('url');
+    const qrcode = document.getElementById('qrcode');
+
+    function make() {
+      QRCode.toCanvas(qrcode, urlInput.value, {
+        width: 300, margin:1
+      }, err => err && console.log(err))
+    }
+
+    urlInput.oninput = make;
+    make();
+  </script>
+</body>
+</html>

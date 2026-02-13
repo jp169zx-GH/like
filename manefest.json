@@ -1,0 +1,22 @@
+﻿{
+  "name": "客户喜好分析",
+  "short_name": "喜好分析",
+  "description": "生日自动分析星座生肖、配对、穿衣饮食交友消费喜好",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#4A90E2",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

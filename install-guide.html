@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone安装指南 - 大五人格养老评测</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .step {
+            margin-bottom: 25px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .step-content {
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .icon-demo {
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .icon-demo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-icon {
+            margin-right: 10px;
+        }
+        
+        .tips {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .tips-title {
+            font-weight: 600;
+            color: #856404;
+            margin-bottom: 8px;
+        }
+        
+        .tips-content {
+            color: #856404;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .feature-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .feature-text {
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🧠</div>
+            <h1>大五人格养老评测 PWA</h1>
+            <p class="subtitle">可安装到iPhone主屏幕的独立应用</p>
+        </div>
+        
+        <div class="card">
+            <div class="section-title">
+                <span>📱</span>
+                <span>iPhone安装步骤</span>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-title">使用Safari浏览器打开</div>
+                    <strong style="color: #e74c3c;">重要：必须使用Safari浏览器，Chrome等其他浏览器无法添加到主屏幕！</strong><br>
+                    在iPhone上用Safari浏览器打开本页面
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-title">点击底部分享按钮</div>
+                    在Safari<strong>底部导航栏</strong>（不是顶部）找到分享按钮<br>
+                    图标是一个<strong>正方形带向上箭头</strong>：<span style="font-size: 1.5rem;">⬆️</span> (中间位置)
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-title">向下滚动找到"添加到主屏幕"</div>
+                    在弹出菜单中<strong>向下滚动</strong>（不要向上），找到「<strong>添加到主屏幕</strong>」选项<br>
+                    图标是一个加号和手机屏幕：<span style="font-size: 1.3rem;">➕📱</span><br>
+                    <em style="color: #e74c3c;">注意：如果找不到此选项，可能是因为：</em><br>
+                    • 不是用Safari浏览器打开的<br>
+                    • 已经添加过该网站<br>
+                    • iOS系统版本过旧（需要iOS 13+）
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <div class="step-title">完成安装</div>
+                    点击「添加到主屏幕」，然后点击右上角的「<strong>添加</strong>」按钮<br>
+                    应用图标将出现在主屏幕上，名称为「养老评测」
+                </div>
+            </div>
+            
+            <div class="icon-demo">
+                <img src="icon-192.png" alt="应用图标">
+                <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">应用将显示此图标</p>
+            </div>
+            
+            <div class="tips">
+                <div class="tips-title">💡 温馨提示</div>
+                <div class="tips-content">
+                    <strong>如果仍然找不到"添加到主屏幕"选项：</strong><br>
+                    1. 确认使用的是<strong>Safari浏览器</strong>（其他浏览器不支持）<br>
+                    2. 点击地址栏，复制完整网址<br>
+                    3. 打开新的Safari标签页，粘贴网址访问<br>
+                    4. 再次尝试分享→添加到主屏幕<br>
+                    <br>
+                    <strong>或者：</strong>将此页面加入书签，以便快速访问<br>
+                    <em>安装后的应用可以离线使用，体验更佳！</em>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="section-title">
+                <span>✨</span>
+                <span>应用特点</span>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-text">
+                    <div class="feature-title">科学测评</div>
+                    基于国际标准大五人格理论，50题专业问卷
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🏡</div>
+                <div class="feature-text">
+                    <div class="feature-title">养老匹配</div>
+                    根据人格特征智能匹配养老需求和消费偏好
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <div class="feature-text">
+                    <div class="feature-title">原生体验</div>
+                    安装后可离线使用，加载速度快，体验流畅
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-text">
+                    <div class="feature-title">隐私安全</div>
+                    所有数据仅存储在本地，不上传任何信息
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="section-title">
+                <span>🚀</span>
+                <span>立即开始</span>
+            </div>
+            
+            <p style="line-height: 1.8; color: #555; margin-bottom: 15px;">
+                点击下方按钮开始您的人格评测之旅，了解您的养老需求和消费偏好。
+            </p>
+            
+            <a href="big5-elderly-care.html" class="btn">
+                <span class="btn-icon">🧠</span>
+                <span>开始评测</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

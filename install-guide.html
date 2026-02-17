@@ -328,11 +328,31 @@
                 点击下方按钮开始您的人格评测之旅，了解您的养老需求和消费偏好。
             </p>
             
-            <a href="big5-elderly-care.html" class="btn">
+            <a href="big5-elderly-care.html" class="btn" onclick="return checkLink(this)">
                 <span class="btn-icon">🧠</span>
                 <span>开始评测</span>
             </a>
         </div>
     </div>
+
+<script>
+function checkLink(el) {
+    // Try fetch to check if file exists
+    fetch(el.href, {method: 'HEAD'})
+        .then(r => {
+            if (!r.ok) {
+                alert('找不到评测文件（big5-elderly-care.html）
+请确认该文件与本页面在同一文件夹中。');
+            } else {
+                window.location.href = el.href;
+            }
+        })
+        .catch(() => {
+            // Network error or file:// protocol - just navigate
+            window.location.href = el.href;
+        });
+    return false; // prevent default, handle manually
+}
+</script>
 </body>
 </html>
